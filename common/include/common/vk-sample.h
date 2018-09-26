@@ -208,6 +208,8 @@ public:
 protected:
     uint32_t getMemoryTypeIndex (VkMemoryRequirements const &requirements, VkMemoryPropertyFlags flags);
 
+    VkResult createShaderMoudle (std::string const &shaderPath, VkShaderModule &shaderMoudle);
+
 protected:
     uint32_t                 mFrameNumber;
     VkInstance               mInstance;

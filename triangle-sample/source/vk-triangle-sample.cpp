@@ -23,7 +23,6 @@
 #include "vk-triangle-sample.h"
 
 #include <cassert>
-#include <fstream>
 #include <iterator>
 #include <array>
 
@@ -150,31 +149,8 @@ void VkTriangleSample::onInit (HINSTANCE instance, HWND window, HDC deviceContex
     }
 
     {
-        std::fstream fs;
-        std::string code;
-        VkShaderModuleCreateInfo createInfo = { VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO };
-        
-        fs.open(kVertShaderPath, std::fstream::in | std::fstream::binary);
-        assert(fs.is_open());
-
-        code = std::string(std::istreambuf_iterator<char>(fs), std::istreambuf_iterator<char>());
-        fs.close();
-
-        createInfo.codeSize = code.size();
-        createInfo.pCode = reinterpret_cast<uint32_t *>(code.data());
-        
-        vkCreateShaderModule(mDevice, &createInfo, nullptr, &mVertShaderModule);
-
-        fs.open(kFragShaderPath, std::fstream::in | std::fstream::binary);
-        assert(fs.is_open());
-
-        code = std::string(std::istreambuf_iterator<char>(fs), std::istreambuf_iterator<char>());
-        fs.close();
-
-        createInfo.codeSize = code.size();
-        createInfo.pCode = reinterpret_cast<uint32_t *>(code.data());
-
-        vkCreateShaderModule(mDevice, &createInfo, nullptr, &mFragShaderModule);
+        createShaderMoudle(kVertShaderPath, mVertShaderModule);
+        createShaderMoudle(kFragShaderPath, mFragShaderModule);
     }
 
     {

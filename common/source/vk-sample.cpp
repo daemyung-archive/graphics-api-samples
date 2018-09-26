@@ -23,6 +23,8 @@
 #include "common/vk-sample.h"
 
 #include <algorithm>
+#include <fstream>
+#include <cassert>
 
 #define GET_VK_INSTANCE_API_PROC_ADDR_MACRO(function)                                        \
     function = reinterpret_cast<PFN_##function>(vkGetInstanceProcAddr(mInstance, #function));
@@ -415,4 +417,18 @@ uint32_t VkSample::getMemoryTypeIndex (VkMemoryRequirements const &requirements,
     }
 
     return UINT32_MAX;
+}
+
+VkResult VkSample::createShaderMoudle (std::string const &shaderPath, VkShaderModule &shaderMoudle)
+{
+    std::fstream fs(shaderPath, std::fstream::in | std::fstream::binary);
+    assert(fs.is_open());
+
+    std::string code= std::string(std::istreambuf_iterator<char>(fs), std::istreambuf_iterator<char>());
+
+    VkShaderModuleCreateInfo createInfo = { VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO };
+    createInfo.codeSize = code.size();
+    createInfo.pCode = reinterpret_cast<uint32_t *>(code.data());
+
+    return vkCreateShaderModule(mDevice, &createInfo, nullptr, &shaderMoudle);
 }

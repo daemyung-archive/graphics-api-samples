@@ -250,31 +250,8 @@ void VkTextureSample::onInit (HINSTANCE instance, HWND window, HDC deviceContext
     }
 
     {
-        std::fstream fs;
-        std::string code;
-        VkShaderModuleCreateInfo createInfo = { VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO };
-
-        fs.open(kVertShaderPath, std::fstream::in | std::fstream::binary);
-        assert(fs.is_open());
-
-        code = std::string(std::istreambuf_iterator<char>(fs), std::istreambuf_iterator<char>());
-        fs.close();
-
-        createInfo.codeSize = code.size();
-        createInfo.pCode = reinterpret_cast<uint32_t *>(code.data());
-
-        vkCreateShaderModule(mDevice, &createInfo, nullptr, &mVertShaderModule);
-
-        fs.open(kFragShaderPath, std::fstream::in | std::fstream::binary);
-        assert(fs.is_open());
-
-        code = std::string(std::istreambuf_iterator<char>(fs), std::istreambuf_iterator<char>());
-        fs.close();
-
-        createInfo.codeSize = code.size();
-        createInfo.pCode = reinterpret_cast<uint32_t *>(code.data());
-
-        vkCreateShaderModule(mDevice, &createInfo, nullptr, &mFragShaderModule);
+        createShaderMoudle(kVertShaderPath, mVertShaderModule);
+        createShaderMoudle(kFragShaderPath, mFragShaderModule);
     }
 
     {
@@ -546,8 +523,19 @@ void VkTextureSample::onExit ()
         vkDestroyFramebuffer(mDevice, framebuffer, nullptr);
     }
 
+    vkDestroyPipelineLayout(mDevice, mPipelineLayout, nullptr);
+    vkDestroyPipeline(mDevice, mPipeline, nullptr);
+    vkDestroyShaderModule(mDevice, mFragShaderModule, nullptr);
+    vkDestroyShaderModule(mDevice, mVertShaderModule, nullptr);
     vkDestroyRenderPass(mDevice, mRenderPass, nullptr);
-
+    vkDestroyDescriptorSetLayout(mDevice, mDescriptorSetLayout, nullptr);
+    vkDestroyDescriptorPool(mDevice, mDescriptorPool, nullptr);
+    vkDestroySampler(mDevice, mTextureSampler, nullptr);
+    vkDestroyImageView(mDevice, mTextureImageView, nullptr);
+    vkFreeMemory(mDevice, mTextureMemory, nullptr);
+    vkDestroyImage(mDevice, mTextureImage, nullptr);
+    vkFreeMemory(mDevice, mVertexMemory, nullptr);
+    vkDestroyBuffer(mDevice, mVertexBuffer, nullptr);
 
     VkSample::onExit();
 }

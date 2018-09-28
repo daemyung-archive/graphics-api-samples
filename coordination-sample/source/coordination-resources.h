@@ -91,4 +91,6 @@ const std::vector<glm::vec3> kPositions = {
     { -1.3f,  1.0f,  -1.5f }
 };
 
+constexpr auto kTexturePath = RESOURCE_DIR"/box.jpg";
+
 #endif

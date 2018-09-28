@@ -63,8 +63,7 @@ constexpr char *kFragShader = {
 
 GlCoordinationSample::GlCoordinationSample (std::wstring const& title, uint32_t width, uint32_t height)
     :
-    GlSample(title, width, height),
-    mRandomGenerator()
+    GlSample(title, width, height)
 {
 }
 
@@ -90,7 +89,7 @@ void GlCoordinationSample::onInit (HINSTANCE instance, HWND window, HDC deviceCo
     glEnableVertexAttribArray(1);
 
     int width, height, components;
-    auto imgPixels = stbi_load(RESOURCE_DIR"/box.jpg", &width, &height, &components, STBI_rgb_alpha);
+    auto imgPixels = stbi_load(kTexturePath, &width, &height, &components, STBI_rgb_alpha);
 
     glGenTextures(1, &mTexture);
     glBindTexture(GL_TEXTURE_2D, mTexture);

@@ -20,19 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef GL_CONSTANT_SAMPLE_H
-#define GL_CONSTANT_SAMPLE_H
+#ifndef VK_COORDINATION_SAMPLE_H
+#define VK_COORDINATION_SAMPLE_H
 
-#include <random>
-#include <glm/glm.hpp>
-#include <common/gl-sample.h>
+#include <common/vk-sample.h>
 
-class GlCoordinationSample : public GlSample
+class VkCoordinationSample : public VkSample
 {
 public:
-    GlCoordinationSample (std::wstring const& title, uint32_t width, uint32_t height);
-
-    ~GlCoordinationSample ();
+    VkCoordinationSample (std::wstring const& title, uint32_t width, uint32_t height);
 
     void onInit (HINSTANCE instance, HWND window, HDC deviceContext) override;
 
@@ -43,15 +39,30 @@ public:
     void onRender (HDC deviceContext) override;
 
 private:
-    GLuint    mVao;
-    GLuint    mPosVbo;
-    GLuint    mTexture;
-    GLuint    mVertShader;
-    GLuint    mFragShader;
-    GLuint    mProgram;
-    glm::mat4 mProjMatix;
-    glm::mat4 mViewMatrix;
-    std::random_device mRandomGenerator;
+    VkImage          mDepthImage;
+    VkDeviceMemory   mDepthMemory;
+    VkImageView      mDepthImageView;
+    VkBuffer         mVertexBuffer;
+    VkDeviceMemory   mVertexMemory;
+    VkBuffer         mUniformBuffer;
+    VkDeviceMemory   mUniformMemory;
+    VkImage          mTextureImage;
+    VkDeviceMemory   mTextureMemory;
+    VkImageView      mTextureImageView;
+    VkSampler        mTextureSampler;
+    VkDescriptorPool mDescriptorPool;
+    VkDescriptorSetLayout mUniformDescriptorSetLayout;
+    VkDescriptorSetLayout mSamplerDescriptorSetLayout;
+    VkRenderPass     mRenderPass;
+    VkShaderModule   mVertShaderModule;
+    VkShaderModule   mFragShaderModule;
+    VkPipelineLayout mPipelineLayout;
+    VkPipeline       mPipeline;
+    VkDescriptorSet  mUniformDescriptorSet;
+    VkDescriptorSet  mSamplerDescriptorSet;
+    std::vector<VkFramebuffer> mFramebuffers;
+    glm::mat4        mProjMatix;
+    glm::mat4        mViewMatrix;
 };
 
 #endif

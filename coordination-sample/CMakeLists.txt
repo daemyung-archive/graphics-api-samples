@@ -27,6 +27,8 @@ add_executable(CoordinationSample WIN32
 	source/coordination-resources.h
 	source/gl-coordination-sample.h
 	source/gl-coordination-sample.cpp
+    source/vk-coordination-sample.h
+    source/vk-coordination-sample.cpp
 	source/main.cpp)
 
 #
@@ -50,4 +52,4 @@ target_link_libraries(CoordinationSample
 set_target_properties(CoordinationSample
     PROPERTIES
         CXX_STANDARD          17
-		CXX_STANDARD_REQUIRED ON)
+	    CXX_STANDARD_REQUIRED ON)

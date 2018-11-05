@@ -571,6 +571,8 @@ void VkTextureSample::onRender (HDC deviceContext)
 
     vkQueueSubmit(mQueue, 1, &submitInfo, mRenderingDoneFences[frameIndex]);
 
+    ++mFrameNumber;
+
     VkPresentInfoKHR presentInfo = { VK_STRUCTURE_TYPE_PRESENT_INFO_KHR };
     presentInfo.waitSemaphoreCount = 1;
     presentInfo.pWaitSemaphores = &mRenderingDoneSemaphores[frameIndex];

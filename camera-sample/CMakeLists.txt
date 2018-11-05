@@ -27,6 +27,8 @@ add_executable(CameraSample WIN32
 	source/camera-resources.h
 	source/gl-camera-sample.h
 	source/gl-camera-sample.cpp
+	source/vk-camera-sample.h
+	source/vk-camera-sample.cpp
 	source/main.cpp)
 
 #

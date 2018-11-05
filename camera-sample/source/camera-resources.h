@@ -78,4 +78,6 @@ const std::vector<Vertex> kVerticies = {
     { { -0.5f,  0.5f, -0.5f, 1.0f }, { 0.0f, 1.0f } }
 };
 
+constexpr auto kTexturePath = RESOURCE_DIR"/box.jpg";
+
 #endif

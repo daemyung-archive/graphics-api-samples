@@ -91,6 +91,10 @@ VkSample::VkSample (std::wstring const& title, uint32_t width, uint32_t height)
     }
 
     {
+        vkGetPhysicalDeviceProperties(mPhysicalDevice, &mPhysicalDeviceProperties);
+    }
+
+    {
         vkGetPhysicalDeviceMemoryProperties(mPhysicalDevice, &mMemoryProperties);
     }
 

@@ -214,6 +214,7 @@ protected:
     uint32_t                 mFrameNumber;
     VkInstance               mInstance;
     VkPhysicalDevice         mPhysicalDevice;
+    VkPhysicalDeviceProperties mPhysicalDeviceProperties;
     VkPhysicalDeviceMemoryProperties mMemoryProperties;
     uint32_t                 mQueueFamilyIndex;
     VkDevice                 mDevice;

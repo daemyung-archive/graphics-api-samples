@@ -1,11 +1,11 @@
 
 add_library(Stb
-    INTERFACE)
+	INTERFACE)
 
 target_include_directories(Stb
-    INTERFACE
-    	include)
+	INTERFACE
+		include)
 
 target_compile_definitions(Stb
-    INTERFACE
-    	STB_IMAGE_IMPLEMENTATION)
+	INTERFACE
+		STB_IMAGE_IMPLEMENTATION)

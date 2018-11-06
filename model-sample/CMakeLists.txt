@@ -37,24 +37,24 @@ add_executable(ModelSample WIN32
 target_link_libraries(ModelSample
 	PRIVATE
 		Common
-        Stb)
+		Stb)
 
 #
 # Compile definitions
 #   
 target_compile_definitions(ModelSample
-    PRIVATE
-    	RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
+	PRIVATE
+		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 #
 # Set properties.
 #
 set_target_properties(ModelSample
-    PROPERTIES
-        CXX_STANDARD          17
+	PROPERTIES
+		CXX_STANDARD          17
 		CXX_STANDARD_REQUIRED ON)
 
 add_custom_command(TARGET ModelSample POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${PROJECT_SOURCE_DIR}/external/assimp/lib/x64/assimp-vc140-mt.dll"
-    $<TARGET_FILE_DIR:ModelSample>)
+	COMMAND ${CMAKE_COMMAND} -E copy_if_different
+	"${PROJECT_SOURCE_DIR}/external/assimp/lib/x64/assimp-vc140-mt.dll"
+	$<TARGET_FILE_DIR:ModelSample>)

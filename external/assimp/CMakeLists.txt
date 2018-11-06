@@ -8,12 +8,12 @@ add_library(Assimp
 # Add include directories.
 #
 target_include_directories(Assimp
-    INTERFACE
-        include)
+	INTERFACE
+		include)
 
 #
 # Link libraries
 #
 target_link_libraries(Assimp
 	INTERFACE
-    "${CMAKE_CURRENT_SOURCE_DIR}/lib/x64/assimp-vc140-mt.lib")
+		"${CMAKE_CURRENT_SOURCE_DIR}/lib/x64/assimp-vc140-mt.lib")

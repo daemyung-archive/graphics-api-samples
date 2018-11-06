@@ -35,8 +35,8 @@ add_executable(CameraSample WIN32
 # Compile definitions
 #   
 target_compile_definitions(CameraSample
-    PRIVATE
-    	RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
+	PRIVATE
+		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 #
 # Link libraries
@@ -44,12 +44,12 @@ target_compile_definitions(CameraSample
 target_link_libraries(CameraSample
 	PRIVATE
 		Common
-        Stb)
+		Stb)
 
 #
 # Set properties.
 #
 set_target_properties(CameraSample
-    PROPERTIES
-        CXX_STANDARD          17
+	PROPERTIES
+		CXX_STANDARD          17
 		CXX_STANDARD_REQUIRED ON)

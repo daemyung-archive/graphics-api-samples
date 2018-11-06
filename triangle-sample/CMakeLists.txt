@@ -27,7 +27,7 @@ add_executable(TriangleSample WIN32
 	source/triangle-resources.h
 	source/gl-triangle-sample.h
 	source/gl-triangle-sample.cpp
-    source/vk-triangle-sample.h
+	source/vk-triangle-sample.h
 	source/vk-triangle-sample.cpp
 	source/main.cpp)
 
@@ -42,13 +42,13 @@ target_link_libraries(TriangleSample
 # Compile definitions
 #   
 target_compile_definitions(TriangleSample
-    PRIVATE
-    	RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
+	PRIVATE
+		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 #
 # Set properties.
 #
 set_target_properties(TriangleSample
-    PROPERTIES
-        CXX_STANDARD          17
+	PROPERTIES
+		CXX_STANDARD          17
 		CXX_STANDARD_REQUIRED ON)

@@ -20,8 +20,8 @@ target_include_directories(Khronos
 # Set compile definitions
 #
 target_compile_definitions(Khronos
-        INTERFACE
-        	VK_USE_PLATFORM_WIN32_KHR)
+	INTERFACE
+		VK_USE_PLATFORM_WIN32_KHR)
 
 #
 # Link libraries

@@ -27,16 +27,16 @@ add_executable(CoordinationSample WIN32
 	source/coordination-resources.h
 	source/gl-coordination-sample.h
 	source/gl-coordination-sample.cpp
-    source/vk-coordination-sample.h
-    source/vk-coordination-sample.cpp
+	source/vk-coordination-sample.h
+	source/vk-coordination-sample.cpp
 	source/main.cpp)
 
 #
 # Compile definitions
 #   
 target_compile_definitions(CoordinationSample
-    PRIVATE
-    	RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
+	PRIVATE
+		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 #
 # Link libraries
@@ -44,12 +44,12 @@ target_compile_definitions(CoordinationSample
 target_link_libraries(CoordinationSample
 	PRIVATE
 		Common
-        Stb)
+		Stb)
 
 #
 # Set properties.
 #
 set_target_properties(CoordinationSample
-    PROPERTIES
-        CXX_STANDARD          17
-	    CXX_STANDARD_REQUIRED ON)
+	PROPERTIES
+		CXX_STANDARD          17
+		CXX_STANDARD_REQUIRED ON)

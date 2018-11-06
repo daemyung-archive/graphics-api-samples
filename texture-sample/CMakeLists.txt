@@ -27,16 +27,16 @@ add_executable(TextureSample WIN32
 	source/texture-resources.h
 	source/gl-texture-sample.h
 	source/gl-texture-sample.cpp
-    source/vk-texture-sample.h
-    source/vk-texture-sample.cpp
+	source/vk-texture-sample.h
+	source/vk-texture-sample.cpp
 	source/main.cpp)
 
 #
 # Compile definitions
 #   
 target_compile_definitions(TextureSample
-    PRIVATE
-    	RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
+	PRIVATE
+		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources")
 
 #
 # Link libraries
@@ -44,12 +44,12 @@ target_compile_definitions(TextureSample
 target_link_libraries(TextureSample
 	PRIVATE
 		Common
-        Stb)
+		Stb)
 
 #
 # Set properties.
 #
 set_target_properties(TextureSample
-    PROPERTIES
-        CXX_STANDARD          17
+	PROPERTIES
+		CXX_STANDARD          17
 		CXX_STANDARD_REQUIRED ON)

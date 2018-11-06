@@ -7,8 +7,8 @@ cmake_minimum_required(VERSION 3.1.3)
 # Set project details.
 #
 project(graphics-api-samples
-        VERSION   0.0.1
-        LANGUAGES CXX)
+	VERSION   0.0.1
+	LANGUAGES CXX)
 
 #
 # Add subdirectories to build.

@@ -25,7 +25,7 @@ target_link_libraries(Common
         Khronos
         Assimp
         glm
-		${CMAKE_DL_LIBS})
+        ${CMAKE_DL_LIBS})
 
 #
 # Add sources to Platform on Windows.
@@ -33,7 +33,7 @@ target_link_libraries(Common
 target_sources(Common
 	PRIVATE
         source/sample.cpp
-		source/win32-application.cpp
+        source/win32-application.cpp
         source/gl-sample.cpp
         source/vk-sample.cpp
         source/camera.cpp
@@ -54,4 +54,4 @@ target_compile_definitions(Common
 set_target_properties(Common
     PROPERTIES
         CXX_STANDARD          17
-		CXX_STANDARD_REQUIRED ON)
+        CXX_STANDARD_REQUIRED ON)

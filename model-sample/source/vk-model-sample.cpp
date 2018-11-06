@@ -35,19 +35,20 @@
 
 // #version 310 es
 // 
-// layout (location = 0) in vec4 iPosition;
-// layout (location = 1) in vec4 iTexCoord;
+// layout(location = 0) in vec3 iPosition;
+// layout(location = 1) in vec3 iNormal;
+// layout(location = 2) in vec2 iTexCoord;
 // 
-// layout (location = 0) out vec4 oTexCoord;
+// layout(location = 0) out vec2 oTexCoord;
 // 
-// layout (set = 0, binding = 0) uniform Global
+// layout(set = 0, binding = 0) uniform Global
 // {
 //     mat4 uMvp;
 // };
 // 
 // void main()
 // {
-//     gl_Position = uMvp * iPosition;
+//     gl_Position = uMvp * vec4(iPosition, 1.0);
 //     oTexCoord = iTexCoord;
 // }
 constexpr char* kVertShaderPath = RESOURCE_DIR"/model.vert.spv";
@@ -60,11 +61,11 @@ constexpr char* kVertShaderPath = RESOURCE_DIR"/model.vert.spv";
 // 
 // layout (location = 0) out vec4 oColor;
 // 
-// layout (set = 0, binding = 1) uniform sampler2D sTexture;
+// layout (set = 0, binding = 1) uniform sampler2D sDiffuse;
 // 
 // void main ()
 // {
-//     oColor = texture(sTexture, iTexCoord);
+//     oColor = texture(sDiffuse, iTexCoord);
 // }
 constexpr char* kFragShaderPath = RESOURCE_DIR"/model.frag.spv";
 

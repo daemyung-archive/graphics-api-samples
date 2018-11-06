@@ -27,6 +27,8 @@ add_executable(ModelSample WIN32
 	source/model-resources.h
 	source/gl-model-sample.h
 	source/gl-model-sample.cpp
+	source/vk-model-sample.h
+	source/vk-model-sample.cpp
 	source/main.cpp)
 
 #

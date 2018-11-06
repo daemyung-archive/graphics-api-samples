@@ -168,7 +168,7 @@ void VkCoordinationSample::onInit (HINSTANCE instance, HWND window, HDC deviceCo
         vkCreateBuffer(mDevice, &createInfo, nullptr, &mUniformBuffer);
 
         VkMemoryRequirements memoryRequirements;
-        vkGetBufferMemoryRequirements(mDevice, mVertexBuffer, &memoryRequirements);
+        vkGetBufferMemoryRequirements(mDevice, mUniformBuffer, &memoryRequirements);
 
         constexpr VkMemoryPropertyFlags memoryPropertyFlags = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT | VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT;
         auto memoryTypeIndex = getMemoryTypeIndex(memoryRequirements, memoryPropertyFlags);

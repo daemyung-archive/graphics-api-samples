@@ -7,6 +7,7 @@ add_library(Common
 		include/common/win32-application.h
         include/common/gl-sample.h
         include/common/vk-sample.h
+        include/common/dx-sample.h
         include/common/camera.h
         include/common/model.h)
 
@@ -25,6 +26,7 @@ target_link_libraries(Common
         Khronos
         Assimp
         glm
+        Microsoft
         ${CMAKE_DL_LIBS})
 
 #
@@ -36,6 +38,7 @@ target_sources(Common
         source/win32-application.cpp
         source/gl-sample.cpp
         source/vk-sample.cpp
+        source/dx-sample.cpp
         source/camera.cpp
         source/model.cpp)
 

@@ -29,6 +29,8 @@ add_executable(TriangleSample WIN32
 	source/gl-triangle-sample.cpp
 	source/vk-triangle-sample.h
 	source/vk-triangle-sample.cpp
+	source/dx-triangle-sample.h
+	source/dx-triangle-sample.cpp
 	source/main.cpp)
 
 #

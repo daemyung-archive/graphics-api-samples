@@ -137,7 +137,7 @@ VkSample::VkSample (std::wstring const& title, uint32_t width, uint32_t height)
         createInfo.pQueueCreateInfos = &queueCreateInfo;
         createInfo.enabledExtensionCount = static_cast<uint32_t>(kExtensionNames.size());
         createInfo.ppEnabledExtensionNames = kExtensionNames.data();
-        createInfo.pEnabledFeatures = &physicalDeviceFeatures;
+        createInfo.pEnabledFeatures = nullptr;// &physicalDeviceFeatures;
 
         auto result = vkCreateDevice(mPhysicalDevice, &createInfo, nullptr, &mDevice);
 
